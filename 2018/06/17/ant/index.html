@@ -7,11 +7,18 @@
 
     
 
-    <title>Archives | asmysoul</title>
+    <title>ant | asmysoul</title>
     <meta name="author" content="[object Object]" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="不骄不傲不膨胀、不再犹豫。" />
+    <meta name="description" content="Antant can extract page in an easy way
+
+just do that 
+
+     AntQueue antQueue = TaskQueue.of();
+        antQueue.push(new Task(&amp;quot;https://github.com/&amp;quot;));
+        Ant ant = Ant.create().startQueue(antQueue).thread(1);
+        AntMonitor.getIns" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <meta name="baidu-site-verification" content="F0CXvmUgA9" />
@@ -46,7 +53,7 @@
         
         
         
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/archives">归档</a>
         </li>
         
@@ -69,90 +76,81 @@
 
         
         
+        
+        
 
         
-        <div class="author-meta">
-            
-            <div class="author-avatar">
-                <a href="/">
-                    <img src="http://wo-img.fangline.cn/e7a2486d-7878-4ba6-a964-ccec777cba96.jpg?x-oss-process=image/resize,h_264" title="Sanonz">
-                </a>
-            </div>
-            
-            <div class="author-name">asmysoul</div>
-            <div class="author-work">to be a Full Stack Developer</div>
-            <div class="author-location">
-                <i class="icon-location vm"></i>
-                <span class="vm">XiaMen, China</span>
-            </div>
-            
-            <div class="author-thread-wrap">
-                <div class="author-threads clearfix">
-                    
-                    <a class="thread-item" href="https://github.com/asmysoul" target="_blank" rel="noopener"><i class="icon-github"></i></a>
-                    
-                    
-                    
-                </div>
-            </div>
-            
-        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant"><span class="toc-number">1.</span> <span class="toc-text">Ant</span></a></li></ol>
         
     </div>
 </aside>
 
 </header>
 
-        <div id="content" class="content">
-
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
     
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            ant
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2018/06/17/ant/">
     
+    <i class="icon-calendar"></i>
     
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2018" class="archive-year">2018</a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2018/06/17/ant/">ant</a>
-            (<a class="article-date" href="/2018/06/17/ant/">
-    
-    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">6/17</time>
+    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">2018-06-17</time>
 </a>
-)
-        </header>
-    </div>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/开源项目/">开源项目</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a>Ant</h2><pre><code>ant can extract page in an easy way
+
+just do that 
+
+     AntQueue antQueue = TaskQueue.of();
+        antQueue.push(new Task(&quot;https://github.com/&quot;));
+        Ant ant = Ant.create().startQueue(antQueue).thread(1);
+        AntMonitor.getInstance().regist(ant);
+        ant.run();
+</code></pre>
+        
+    </section>
 </article>
-    </li>
 
-    
-    
 
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2018/06/16/myblog/">我的博客</a>
-            (<a class="article-date" href="/2018/06/16/myblog/">
-    
-    <time datetime="2018-06-16T07:15:07.383Z" itemprop="datePublished">6/16</time>
-</a>
-)
-        </header>
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
     </div>
-</article>
-    </li>
-
-
-</ol></section>
-
-
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'http://yoursite.com/2018/06/17/ant/';
+        this.page.title = 'ant';
+        this.page.identifier = '2018/06/17/ant/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_6IIiqYmnx1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 
 </div>
         <footer class="footer">
@@ -165,6 +163,8 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
     
     <script type="text/javascript">
         $(function() {
@@ -186,6 +186,8 @@
                 nodes.navTags.removeClass('tag-show');
             });*/
 
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
             
         });
     </script>

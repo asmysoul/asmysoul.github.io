@@ -109,6 +109,49 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2018/06/17/ant/">ant</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2018/06/17/ant/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/开源项目/">开源项目</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a>Ant</h2><pre><code>ant can extract page in an easy way
+
+just do that 
+
+     AntQueue antQueue = TaskQueue.of();
+        antQueue.push(new Task(&quot;https://github.com/&quot;));
+        Ant ant = Ant.create().startQueue(antQueue).thread(1);
+        AntMonitor.getInstance().regist(ant);
+        ant.run();
+</code></pre>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/06/16/myblog/">我的博客</a>
         </h1>
         

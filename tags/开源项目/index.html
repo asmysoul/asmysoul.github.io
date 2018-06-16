@@ -7,7 +7,7 @@
 
     
 
-    <title>Archives | asmysoul</title>
+    <title>Tag: 开源项目 | asmysoul</title>
     <meta name="author" content="[object Object]" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
@@ -40,13 +40,13 @@
         
         
         
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/tags">标签</a>
         </li>
         
         
         
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/archives">归档</a>
         </li>
         
@@ -104,53 +104,49 @@
 </header>
 
         <div id="content" class="content">
-
+    <article class="article" itemscope itemprop="blogPost">
     
-    
-    
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2018" class="archive-year">2018</a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/06/17/ant/">ant</a>
-            (<a class="article-date" href="/2018/06/17/ant/">
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2018/06/17/ant/">
     
-    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">6/17</time>
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">2018-06-17</time>
 </a>
-)
-        </header>
-    </div>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/开源项目/">开源项目</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a>Ant</h2><pre><code>ant can extract page in an easy way
+
+just do that 
+
+     AntQueue antQueue = TaskQueue.of();
+        antQueue.push(new Task(&quot;https://github.com/&quot;));
+        Ant ant = Ant.create().startQueue(antQueue).thread(1);
+        AntMonitor.getInstance().regist(ant);
+        ant.run();
+</code></pre>
+        
+    </section>
 </article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2018/06/16/myblog/">我的博客</a>
-            (<a class="article-date" href="/2018/06/16/myblog/">
-    
-    <time datetime="2018-06-16T07:15:07.383Z" itemprop="datePublished">6/16</time>
-</a>
-)
-        </header>
-    </div>
-</article>
-    </li>
 
 
-</ol></section>
 
 
 

@@ -8,7 +8,6 @@ cache:
 
 before_install:
     - export TZ='Asia/Shanghai' # 更改时区
-    - npm install -g hexo
 
 # S: Build Lifecycle
 install:
@@ -19,10 +18,12 @@ script:
   - hexo g
 
 after_script:
-  - ls
+  - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
-  - ls
-  - git init
   - git config user.name "asmysoul"  #修改name
   - git config user.email "27708324@qq.com"  #修改email
   - git add .
@@ -36,3 +37,12 @@ branches:
 env:
  global:
    - GH_REF: github.com/asmysoul/asmysoul.github.io.git
+
+# configure notifications (email, IRC, campfire etc)
+# please update this section to your needs!
+# https://docs.travis-ci.com/user/notifications/
+notifications:
+  email:
+    - 27708324@qq.com
+  on_success: change
+  on_failure: always

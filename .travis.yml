@@ -23,6 +23,7 @@ script:
 
 after_script:
   - cd ./public
+  - ls
   - git init
   - git config user.name "asmysoul"  #修改name
   - git config user.email "27708324@qq.com"  #修改email

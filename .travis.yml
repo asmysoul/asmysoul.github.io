@@ -8,14 +8,11 @@ cache:
 
 before_install:
     - export TZ='Asia/Shanghai' # 更改时区
+    - npm install -g hexo
 
 # S: Build Lifecycle
 install:
   - npm install
-
-
-before_script:
- - npm install -g hexo
 
 script:
   - hexo clean

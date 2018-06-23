@@ -4,7 +4,7 @@ title: about
 date: 2017-10-27 01:20:39
 ---
 
-![mahua](https://avatars2.githubusercontent.com/u/10016709)
+![my-avatar](http://image.fzqblog.top/my-avatar.jpg)
 
 #### about
 

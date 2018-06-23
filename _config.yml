@@ -47,12 +47,12 @@ disqus:
 
 # 友盟统计
 umeng:
-  prefix: s13
-  id: 1234567890
+  prefix: s19
+  id: 1274015352
 
 # Miscellaneous
 google_analytics:
-favicon: /favicon.png
+favicon: http://image.fzqblog.top//favicon.png
 twitter:
 google_plus:
 fb_admins:
@@ -126,4 +126,4 @@ deploy:
   type: git
   repo: https://github.com/asmysoul/asmysoul.github.io
 
-
+copyright: false

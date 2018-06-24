@@ -6,15 +6,13 @@ categories: 开源项目
 ---
 ## Ant
 
-    ant can extract page in an easy way
+    Ant, 之所以选择这么一个名字第一是因为够短, 第二是最近工作大部分在写前端, 用到Ant-Design, 因而选了这么一个名字。￣□￣｜｜
+
+    写这么一个东西主要是兴趣, 还有就是工作中也会用到, 想要一个接入代理平台方便的小型框架, 看了一些爬虫框架的源码, 借鉴（抄袭￣□￣｜｜）其中的主要核心逻辑, 
 
     just do that 
 
-        AntQueue antQueue = TaskQueue.of();
-        antQueue.push(new Task("https://github.com/"));
-        Ant ant = Ant.create().startQueue(antQueue).thread(1);
-        AntMonitor.getInstance().regist(ant);
-        ant.run();
+   ![example](http://image.fzqblog.top/ant-example.png)
 
 you can download at    [https://github.com/asmysoul/ant](https://github.com/asmysoul/ant)
     

@@ -51,7 +51,7 @@
         <span class="vm">Tags</span>
     </h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/无题/">无题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源项目/">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/无题/">无题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
     </div>
   </div>
 
@@ -158,6 +158,104 @@
 <pre><code>(～￣▽￣)～6 
 </code></pre><p>   <img src="http://image.fzqblog.top/2018-06-23-13-02-07.png" alt="2018-06-23-13-02-07"></p>
 </blockquote>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2018/06/17/ant/">ant</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2018/06/17/ant/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-06-16T19:37:56.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/开源项目/">开源项目</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Ant"><a href="#Ant" class="headerlink" title="Ant"></a>Ant</h2><p><img src="https://api.travis-ci.org/asmysoul/ant.svg?branch=master" alt=""> <img src="https://img.shields.io/badge/language-java-green.svg" alt=""> <img src="https://img.shields.io/badge/jdk-1.8-green.svg" alt=""></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><pre><code>Ant, 之所以选择这么一个名字第一是因为够短, 
+第二是最近工作大部分在写前端, 用到Ant-Design,
+因而选了这么一个名字。￣□￣｜｜
+
+写这么一个东西主要是兴趣, 还有就是工作中也会用到, 
+想要一个接入代理平台方便的小型框架, 
+看了一些爬虫框架的源码, 借鉴（抄袭￣□￣｜｜）其中的主要核心逻辑。
+</code></pre><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>   <img src="http://image.fzqblog.top/ant-example.png" alt="example"></p>
+<pre><code>极其简单,几行代码即可实现一个简单的爬虫。
+其中的网页节点内容抽取用的JSOUP, 主要是个人写前端, 觉得JSOUP相对简单,
+http客户端使用的是HttpClient, 基于接口实现http抓取, 可自由替换, 
+日志的话采用logback。
+</code></pre><ul>
+<li>引入方式<blockquote>
+<p>maven<br>jdk8</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>top.fzqblog<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ant<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="hello-world"><a href="#hello-world" class="headerlink" title="hello-world"></a>hello-world</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    AntQueue antQueue = TaskQueue.of();<span class="comment">//初始化默认一个任务队列</span></span><br><span class="line">    antQueue.push(<span class="keyword">new</span> Task(<span class="string">"https://github.com/"</span>));<span class="comment">//往队列列表里放一个任务</span></span><br><span class="line">    Ant ant = Ant</span><br><span class="line">            .create()<span class="comment">//创建一个ant,</span></span><br><span class="line">            .startQueue(antQueue)<span class="comment">//并将任务给它,</span></span><br><span class="line">            .thread(<span class="number">1</span>);<span class="comment">// 使用单线程爬取</span></span><br><span class="line">    ant.run();<span class="comment">//发车 滴滴滴</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>TaskQueue支持自定义初始化装载因子 (num)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AntQueue antQueue = TaskQueue.of(num);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ant自定义更多的爬取属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ant ant = Ant</span><br><span class="line">        .create()<span class="comment">//创建一个ant,</span></span><br><span class="line">        .startQueue(antQueue)<span class="comment">//并将任务给它,</span></span><br><span class="line">        .thread(<span class="number">1</span>);<span class="comment">// 使用单线程爬取</span></span><br><span class="line">        .httpKit(自定义的客户端)<span class="comment">//实现IHttpKit 并覆盖doGet方法</span></span><br><span class="line">        .autoClose(<span class="keyword">false</span>)<span class="comment">//取消自动关闭 默认为自动关闭</span></span><br><span class="line">        .sleep(<span class="number">1000</span>)<span class="comment">//抓取间隔 默认为0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持使用自定义的pipeline, 处理抓取到的数据,<br>进行数据格式化, 结构化, 持久化的接口<br>总之就是拿到数据后自己爱咋咋地,<br>默认使用ConsolePipeline,默认输出任务抓取结果到控制台</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stream</span><span class="params">(TaskResponse taskResponse)</span> </span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    logger.info(<span class="string">"TaskResponse------------------------"</span> + taskResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用自定义的pipeline</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubPipeline</span> <span class="keyword">implements</span> <span class="title">IPipeline</span> </span>&#123;<span class="comment">//实现IPipeline接口</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stream</span><span class="params">(TaskResponse taskResponse)</span> </span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;<span class="comment">//覆盖stream方法, 这里面即可自定义处理逻辑</span></span><br><span class="line">        Document document = taskResponse.getDoc();</span><br><span class="line">        logger.info(<span class="string">"taskResponse----------="</span> + document.title());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建爬虫Ant的地方使用该pipeline</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ant ant = Ant</span><br><span class="line">            .create()</span><br><span class="line">            .startQueue(antQueue)</span><br><span class="line">            .pipeline(<span class="keyword">new</span> SubPipeline())</span><br><span class="line">            .thread(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>自定义抓取错误处理Handler,<br>主要是各个网站返回的错误是不一样的,<br>所以开放处理方式进行错误处理, 进行重试或者放弃该任务,<br>默认task的重试次数为3次, 且默认的处理器为<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultHandler</span> <span class="keyword">implements</span> <span class="title">IHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(TaskErrorResponse taskErrorResponse)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Task task = taskErrorResponse.getTask();</span><br><span class="line">            <span class="keyword">if</span>(task.getRetry() &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                logger.error(<span class="string">"重试次数已用完--------"</span>+task);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                taskErrorResponse</span><br><span class="line">                .getQueue()</span><br><span class="line">                .failed(taskErrorResponse.getTask());<span class="comment">//默认每次重试次数减1,重新加入任务队列</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            logger.error(<span class="string">"DefaultHandler-----handle-----error"</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>修改默认任务的重试次数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Task task = <span class="keyword">new</span> Task(url).retry(num);<span class="comment">//num为重试次数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义错误任务处理器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorHandler</span> <span class="keyword">implements</span> <span class="title">IHandler</span> </span>&#123;<span class="comment">//实现IHandler接口</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(TaskErrorResponse taskErrorResponse)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(taskErrorResponse.getE() != <span class="keyword">null</span></span><br><span class="line">        &amp;&amp; taskErrorResponse.getE() <span class="keyword">instanceof</span> Exception)&#123;</span><br><span class="line">        <span class="comment">//根据一些判断条件来检测任务并不是真的失败,可能由于网站的反扒机智,出现的, 此时可以自定义重试策略</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"----------="</span> + taskErrorResponse.getTask());</span><br><span class="line">                taskErrorResponse</span><br><span class="line">                    .getQueue()</span><br><span class="line">                    .fakerFailed(taskErrorResponse.getTask());</span><br><span class="line">                    <span class="comment">//fakerFailed假失败, 重置重试次数，并且重现放回任务队列</span></span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建爬虫Ant的地方使用该Handler</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ant ant = Ant</span><br><span class="line">        .create()</span><br><span class="line">        .startQueue(antQueue)</span><br><span class="line">        .withHandler(<span class="keyword">new</span> ErrorHandler())<span class="comment">//使用上面的错误处理器处理</span></span><br><span class="line">        .thread(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h3><ul>
+<li><p>Task 任务类 以下的参数都可以自定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String group = Constants.APP_TASK_GROUP_DEFAULT;<span class="comment">//每一个任务都会有一个分组，如果没有设置，默认为 default</span></span><br><span class="line"><span class="keyword">private</span> String url;<span class="comment">//url</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; headers = <span class="keyword">new</span> HashMap&lt;&gt;();<span class="comment">//请求头</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();<span class="comment">//请求参数</span></span><br><span class="line"><span class="keyword">private</span> TaskResponse taskResponse;<span class="comment">//执行任务后的返回</span></span><br><span class="line"><span class="keyword">private</span> Object extr;<span class="comment">//额外的数据</span></span><br><span class="line"><span class="keyword">private</span> Integer retry = Constants.DEFAULT_TASK_RETRY;<span class="comment">//重试次数</span></span><br><span class="line"><span class="keyword">private</span> Integer deep = Constants.DEFAULT_TASK_DEEP;<span class="comment">//任务的优先级</span></span><br><span class="line"><span class="keyword">private</span> String userAgent;<span class="comment">//这个就如同名字了</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TaskResponse 任务返回类 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> failed = <span class="keyword">false</span>;<span class="comment">//任务是否失败了</span></span><br><span class="line"><span class="keyword">private</span> Task task;<span class="comment">//任务</span></span><br><span class="line"><span class="keyword">private</span> String content;<span class="comment">//任务返回的文本内容</span></span><br><span class="line"><span class="keyword">private</span> AntQueue queue;<span class="comment">//队列</span></span><br><span class="line"><span class="keyword">private</span> String failMsg;<span class="comment">//失败的信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Document <span class="title">getDoc</span><span class="params">()</span></span>&#123;<span class="comment">//调用该方法直接获取 jsoup的Document对象</span></span><br><span class="line">    <span class="keyword">if</span>(StringUtil.isNotEmpty(<span class="keyword">this</span>.content))&#123;</span><br><span class="line">        <span class="keyword">return</span> Jsoup.parse(<span class="keyword">this</span>.content);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监控(后续打算开放这一块, 自定义要监控的属性)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">AntQueue antQueue = TaskQueue.of();</span><br><span class="line">antQueue.push(<span class="keyword">new</span> Task(<span class="string">"https://github.com/"</span>));</span><br><span class="line">Ant ant = Ant</span><br><span class="line">        .create()</span><br><span class="line">        .startQueue(antQueue)</span><br><span class="line">        .pipeline(<span class="keyword">new</span> SubPipeline())</span><br><span class="line">        .withHandler(<span class="keyword">new</span> ErrorHandler())</span><br><span class="line">        .thread(<span class="number">1</span>);</span><br><span class="line">AntMonitor</span><br><span class="line">.getInstance()</span><br><span class="line">.regist(ant);<span class="comment">//注册jmx监控 使用jconsole即可观察 爬虫的运行线程个数, 成功个数, 爬虫的开始时间</span></span><br><span class="line">ant.run();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
         
     </section>

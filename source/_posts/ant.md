@@ -88,6 +88,30 @@ categories: 开源项目
     ```
 *   使用自定义的pipeline
     ```java
+    1.直接用匿名内部类
+    public class fzqblogSample{
+        public static void main(String[] args){
+            try {
+                AntQueue antQueue = TaskQueue.of();//初始化默认一个任务队列
+                antQueue.push(new Task("https://www.fzqblog.top/"));//往队列列表里放一个任务
+                Ant ant = Ant
+                        .create()//创建一个ant,
+                        .startQueue(antQueue)//并将任务给它,
+                        .pipeline(new IPipeline() {
+                            public void stream(TaskResponse taskResponse) throws InterruptedException {
+                                System.out.println("博客内容----------=" + taskResponse.getContent());
+                            }
+                        })
+                        .thread(1);// 使用单线程爬取
+                ant.run();//发车 滴滴滴
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+    ```java
+    2.实现IPipeline接口
     public class SubPipeline implements IPipeline {//实现IPipeline接口
 
         private transient Logger logger = LoggerFactory.getLogger(getClass());

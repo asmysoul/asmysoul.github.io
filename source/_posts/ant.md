@@ -175,13 +175,13 @@ categories: 开源项目
         public void handle(TaskErrorResponse taskErrorResponse) {
             if(taskErrorResponse.getE() != null
             && taskErrorResponse.getE() instanceof Exception){
-            //根据一些判断条件来检测任务并不是真的失败,可能由于网站的反扒机智,出现的, 此时可以自定义重试策略
+            //根据一些判断条件来检测任务并不是真的失败,可能由于网站的反扒机制,出现的, 此时可以自定义重试策略
                 try {
                     System.out.println("----------=" + taskErrorResponse.getTask());
                     taskErrorResponse
                         .getQueue()
                         .fakerFailed(taskErrorResponse.getTask());
-                        //fakerFailed假失败, 重置重试次数，并且重现放回任务队列
+                        //fakerFailed假失败, 重置重试次数，并且重新放回任务队列
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
